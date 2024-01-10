@@ -24,37 +24,58 @@
                 </form>
             </div>
         </div>
-        <script type="module">
-            // Import the functions you need from the SDKs you need
-            import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-            import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
-        
-            // Your web app's Firebase configuration
-            const firebaseConfig = {
-                apiKey: "AIzaSyAWWQa8UZ0_Tebz0EP379OEuy-ADcwe4tg",
-                authDomain: "mishrasite-ea3b0.firebaseapp.com",
-                projectId: "mishrasite-ea3b0",
-                storageBucket: "mishrasite-ea3b0.appspot.com",
-                messagingSenderId: "631781578426",
-                appId: "1:631781578426:web:ca15beed6f3830eeb45483"
-            };
-        
-            // Initialize Firebase
-            const app = initializeApp(firebaseConfig);
-            const db = getDatabase(app);
-        
-            document.getElementById("submit").addEventListener('click', function (e) {
-                e.preventDefault();
-                set(ref(db, 'user/' + document.getElementById("username").value),
-                    {
-                        username: document.getElementById("username").value,
-                        email: document.getElementById("email").value, // Corrected to use email input
-                        PhoneNumber: document.getElementById("phone").value // Corrected to use phone input
-                    });
-        
-                // Redirect to "home.html" after successful login
+       
+
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyAWWQa8UZ0_Tebz0EP379OEuy-ADcwe4tg",
+        authDomain: "mishrasite-ea3b0.firebaseapp.com",
+        projectId: "mishrasite-ea3b0",
+        storageBucket: "mishrasite-ea3b0.appspot.com",
+        messagingSenderId: "631781578426",
+        appId: "1:631781578426:web:ca15beed6f3830eeb45483"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    document.getElementById("submit").addEventListener('click', async function (e) {
+        e.preventDefault();
+
+        try {
+            await set(ref(db, 'user/' + document.getElementById("username").value), {
+                username: document.getElementById("username").value,
+                email: document.getElementById("email").value,
+                PhoneNumber: document.getElementById("phone").value
+            });
+
+            // Remove the login form
+            document.querySelector('.form').innerHTML = "<h2>Login Successful!</h2>";
+
+            // Create a "Home" button
+            const homeButton = document.createElement('button');
+            homeButton.innerText = 'Home';
+            homeButton.addEventListener('click', function () {
+                // Redirect to "home.html" when the button is clicked
                 window.location.href = "home.html";
             });
-        </script>
+
+            // Append the "Home" button to the document
+            document.body.appendChild(homeButton);
+        } catch (error) {
+            console.error("Firebase error:", error);
+            alert("Login failed. Please check your details and try again.");
+        }
+    });
+</script>
+
+
+
     </body>
 </html>
