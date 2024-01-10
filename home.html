@@ -1,52 +1,111 @@
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car Website Landing Page</title>
-    <link rel="stylesheet" href="style.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-</head>
+    <title>Car Marketplace - Your Destination for Quality Cars</title>
+    <style>
+        /* Add your custom styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
 
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .hero-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+    </style>
+</head>
 <body>
 
-    <header class="header">
-        <a href="#" class="logo">Cars.</a>
-
-        <nav class="navbar">
-            <a href="#" style="--i:1" class="active">Home</a>
-            <a href="#" style="--i:2">About</a>
-            <a href="#" style="--i:3">Review</a>
-            <a href="#" style="--i:4">Featured</a>
-            <a href="#" style="--i:5">Contact</a>
-        </nav>
-
-        <div class="social-media">
-            <a href="#" style="--i:1"><i class='bx bxl-twitter'></i></a>
-            <a href="#" style="--i:2"><i class='bx bxl-facebook'></i></a>
-            <a href="#" style="--i:3"><i class='bx bxl-instagram-alt'></i></a>
-        </div>
+    <header>
+        <h1>Welcome to Car Marketplace</h1>
     </header>
 
-    <section class="home">
-        <div class="home-content">
-            <h1>Car Dealing Experience.</h1>
-            <h3>Redefined!</h3>
-            <p>Audi A6 is a 5 seater Luxury available in a price range of Rs. 64.09 - 70.44 Lakh*. It is available in 3 variants, a 1984 cc, / and a single Automatic transmission. Other key specifications of the A6 include a kerb weight of 1740Kg, ground clearance of 165mm and boot space of 530 Liters.</p>
-            <a href="#" class="btn">Explore Cars</a>
-        </div>
-
-        <div class="home-img">
-            <div class="rhombus">
-                <img src="car.png" alt="">
+    <div class="container">
+        <div class="hero-image">
+            <img src="car_image.jpg" alt="Luxury Car" class="hero-image">
+            <div class="hero-text">
+                <h2>Your Destination for Quality Cars</h2>
+                <p>Explore our wide range of premium and reliable cars. Find the perfect vehicle that suits your lifestyle and preferences.</p>
             </div>
         </div>
 
-        <div class="rhombus2"></div>
-    </section>
-    
+        <h2>About Us</h2>
+        <p>Welcome to Car Marketplace, where your journey to finding the perfect car begins. We pride ourselves on offering a curated selection of high-quality vehicles, ensuring that you have the best options to choose from.</p>
+
+        <h2>Why Choose Us?</h2>
+        <p>At Car Marketplace, we are committed to providing an exceptional car-buying experience. Here's why you should choose us:</p>
+        <ul>
+            <li>Extensive Selection: Explore a diverse range of new and pre-owned cars from various makes and models.</li>
+            <li>Quality Assurance: Each car undergoes thorough inspection to ensure reliability and performance.</li>
+            <li>Transparent Process: Our transparent and straightforward buying process makes it easy for you to make informed decisions.</li>
+            <li>Customer Satisfaction: Your satisfaction is our priority. Our team is dedicated to assisting you at every step.</li>
+        </ul>
+
+        <h2>Our Cars</h2>
+        <p>Discover the latest models, cutting-edge technology, and luxurious features in our collection. From stylish sedans to powerful SUVs, we have the right vehicle for every driver.</p>
+
+        <h2>Contact Us</h2>
+        <p>Have questions or ready to make a purchase? Contact us using the form below, and our team will get in touch with you.</p>
+        <form id="contactForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <input type="submit" value="Submit">
+        </form>
+        
+        <script>
+            document.getElementById("contactForm").addEventListener('submit', function (e) {
+                e.preventDefault();
+
+             
+
+                //  thank you message in a pop-up
+                alert("Thank you for reaching out! Our team will contact you shortly.");
+            });
+        </script>
+    </div>
 
 </body>
-
 </html>
